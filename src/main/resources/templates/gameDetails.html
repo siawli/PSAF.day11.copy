@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details</title>
+</head>
+<body>
+    <img th:src="@{${game.image}}" height="200" width="200"/>
+    <p th:text= "'Gid: ' + ${game.gid}"></p>
+    <p th:text="'Name: ' + ${game.name}"></p>
+    <p th:text="'Year: ' + ${game.year}"></p>
+    <p th:text="'Ranking: ' + ${game.ranking}"></p>
+    <p th:text="'UsersRated: ' + ${game.userRated}"></p>
+    <p th:text="'Game URL: ' + ${game.url}"></p>
+
+    <table style="border: 2cm;">
+        <tr>
+            <th>c_id</th>
+            <th>user</th>
+            <th>rating</th>
+            <th>c_text</th>
+        </tr>
+        <tr th:each="comment : ${comments}">
+            <td th:text="${comment.cId}"></td>
+            <td th:text="${comment.user}"></td>
+            <td th:text="${comment.rating}"></td>
+            <td th:text="${comment.cText}"></td>         
+        </tr>
+    </table>
+
+    <!-- String cId;
+    String user;
+    Integer rating;
+    String cText;
+    Integer gid; -->
+
+</body>
+</html>
